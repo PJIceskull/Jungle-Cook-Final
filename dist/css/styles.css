@@ -213,7 +213,7 @@ footer {
 footer .links {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 550px;
 }
 footer a,
@@ -556,14 +556,21 @@ main {
   margin-bottom: 33px;
 }
 .recipeForm-Holder .attachBTN,
-.recipeForm-Holder .addBTN {
+.recipeForm-Holder .addBTN,
+.recipeForm-Holder .createBTN {
   background-color: #efa7a7;
   border: none;
   cursor: pointer;
 }
 .recipeForm-Holder .attachBTN:hover,
-.recipeForm-Holder .addBTN:hover {
+.recipeForm-Holder .addBTN:hover,
+.recipeForm-Holder .createBTN:hover {
   background-color: #fcbcb8;
+}
+.recipeForm-Holder .attachBTN:active,
+.recipeForm-Holder .addBTN:active,
+.recipeForm-Holder .createBTN:active {
+  background-color: #f25c54;
 }
 .recipeForm-Holder .attachBTN {
   height: 36.2px;
@@ -575,9 +582,6 @@ main {
   right: 0;
   top: -12px;
 }
-.recipeForm-Holder .attachBTN:active {
-  background-color: #f25c54;
-}
 .recipeForm-Holder .addBTN {
   width: 38px;
   height: 38px;
@@ -588,11 +592,37 @@ main {
   font-weight: bold;
   position: absolute;
   right: 0;
-  bottom: 70px;
+  bottom: 68px;
 }
 .recipeForm-Holder .addBTN:active {
   color: #000;
-  background-color: #f25c54;
+}
+.recipeForm-Holder .createBTN {
+  font-family: Caveat-Regular;
+  font-size: 25px;
+  height: 52px;
+  width: 422px;
+  border-radius: 25px;
+  margin-top: 50px;
+  margin-bottom: 109px;
+}
+
+@media screen and (max-width: 780px) {
+  .recipeForm-Holder .createBTN {
+    width: 354px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .recipeForm-Holder div input {
+    font-size: 12px;
+  }
+  .recipeForm-Holder .attachBTN {
+    width: 92px;
+    height: 33.2px;
+  }
+  .recipeForm-Holder .createBTN {
+    width: 283px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
