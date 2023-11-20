@@ -209,6 +209,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  margin-top: -50px;
 }
 footer .links {
   display: flex;
@@ -274,6 +275,7 @@ footer .socialIcons img {
 @media screen and (max-width: 430px) {
   footer {
     display: none;
+    margin-top: -70px;
   }
   .mobile-Footer {
     display: flex;
@@ -347,6 +349,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.home-overlay,
+.Browse-Overlay {
+  padding-bottom: 50px;
 }
 
 #Home-Page {
