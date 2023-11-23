@@ -27,6 +27,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// Global Variable
+let initalIngredientCount = 3; // Counter for input
+let initalInstructionCount = 3; // Counter for input
+
 //  Url Listener
 function initURLListener() {
   $(window).on("hashchange", changeRoute);
@@ -43,7 +47,8 @@ function initListeners() {
 }
 
 // Form Listerners
-export function addFormListeners() {
+// For Login Page
+export function addLoginListeners() {
   // Use Console to see if function works
   // $(".signinBTN").on("click", function () {
   //   console.log($(".signinBTN"));
@@ -134,6 +139,29 @@ export function addFormListeners() {
   });
 }
 
+// For Create Recipe page
+export function addFormListeners() {
+  // Add Ingredients under form
+  // When button under Ingredients is Clicked
+  $(".ingredients-Form .addBTN").on("click", function (e) {
+    // console.log($(".ingredients-Form .addBTN")); // Test Console
+    initalIngredientCount++;
+    $(".ingredients-Form").append(
+      `<input type="text" placeholder="Ingredients #${initalIngredientCount}"/ >`
+    );
+  });
+  // Add Instructions under form
+  // When button under Instructions is Clicked
+  $(".instructions-Form .addBTN").on("click", function (e) {
+    // console.log($(".instructions-Form .addBTN")); // Test Console
+    initalInstructionCount++;
+    $(".instructions-Form").append(
+      `<input type="text" placeholder="Instructions #${initalInstructionCount}"/ >`
+    );
+  });
+}
+
+// On load
 $(document).ready(function () {
   initURLListener();
   initListeners();

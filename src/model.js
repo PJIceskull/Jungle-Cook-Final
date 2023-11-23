@@ -1,5 +1,5 @@
 // import listerners
-import { addFormListeners } from "./index.js";
+import { addLoginListeners, addFormListeners } from "./index.js";
 
 // Route Function
 export function changeRoute() {
@@ -20,6 +20,13 @@ export function changeRoute() {
 
       // Set Listeners if on login.html page
       if (pageID == "login") {
+        $.get(`pages/${pageID}.html`, function (data) {
+          $("#app").html(data);
+          addLoginListeners();
+        });
+      }
+      // Set Form Listeners if on create.html page
+      if (pageID == "create") {
         $.get(`pages/${pageID}.html`, function (data) {
           $("#app").html(data);
           addFormListeners();
