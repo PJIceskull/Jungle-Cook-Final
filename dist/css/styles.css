@@ -539,6 +539,10 @@ main {
 }
 
 @media screen and (max-width: 430px) {
+  #Browse-Page article {
+    margin-left: 30px;
+    margin-top: 40px;
+  }
   #Browse-Page article h1 {
     font-family: Caveat-Bold;
     font-size: 20px;
@@ -555,9 +559,15 @@ main {
 .recipeCard-Holder {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   margin-right: 50px;
   margin-bottom: 50px;
+}
+
+.card-Wrap {
+  max-width: 525px;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 .card-IMG,
@@ -615,9 +625,23 @@ main {
   font-size: 10px;
 }
 
+@media screen and (max-width: 633px) {
+  .card-TEXT {
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
+  .card-TEXT .Direction-Holder img {
+    margin-right: 15px;
+  }
+}
 @media screen and (max-width: 430px) {
   .recipeCard-Holder {
     flex-direction: column;
+    margin-right: 30px;
   }
   .card-IMG,
   .card-TEXT {
@@ -628,10 +652,6 @@ main {
     width: 100%;
   }
   .card-TEXT {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
     height: 200px;
     padding: 0 45px;
   }
@@ -770,6 +790,13 @@ main {
     width: 283px;
   }
 }
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .editBTN,
 .deleteBTN,
 .viewBTN {
@@ -780,6 +807,7 @@ main {
   width: 127.66px;
   font-size: 19px;
   font-family: Caveat-Regular;
+  margin: 15px 7.5px;
 }
 .editBTN a,
 .deleteBTN a,
@@ -792,8 +820,27 @@ main {
 .viewBTN:hover {
   transform: scale(1.1);
   transition: 0.3s;
+  background-color: #000;
+  color: #ffd972;
+}
+.editBTN:hover a,
+.deleteBTN:hover a,
+.viewBTN:hover a {
+  color: #ffd972;
 }
 
+.viewBTN {
+  position: absolute;
+  top: 100px;
+  left: 80px;
+}
+
+@media screen and (max-width: 430px) {
+  .viewBTN {
+    top: 40px;
+    left: 18vw;
+  }
+}
 #View-Recipe {
   max-width: 800px;
   margin: 138px 0 90px;
