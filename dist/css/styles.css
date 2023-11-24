@@ -569,12 +569,16 @@ main {
 
 .card-IMG {
   max-width: 300px;
+  width: 100%;
   overflow: hidden;
 }
 .card-IMG img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.card-IMG .chowmein-Pic {
+  height: 175%;
 }
 
 .card-TEXT {
@@ -621,6 +625,7 @@ main {
   }
   .card-IMG {
     height: 150px;
+    width: 100%;
   }
   .card-TEXT {
     display: flex;
