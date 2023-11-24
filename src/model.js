@@ -16,8 +16,8 @@ export function changeRoute() {
       // console.log("data " + data);
       console.log("data: " + pageID);
       $("#app").html(data);
-      // Set Listerners on other pages
 
+      // Set Listerners on other pages
       // Set Listeners if on login.html page
       if (pageID == "login") {
         $.get(`pages/${pageID}.html`, function (data) {
@@ -25,8 +25,8 @@ export function changeRoute() {
           addLoginListeners();
         });
       }
-      // Set Form Listeners if on create.html page
-      if (pageID == "create") {
+      // Set Form Listeners if on create.html & editRecipes page
+      if (pageID == "create" || pageID == "editRecipes") {
         $.get(`pages/${pageID}.html`, function (data) {
           $("#app").html(data);
           addFormListeners();

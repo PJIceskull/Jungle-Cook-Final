@@ -30,6 +30,7 @@ const auth = getAuth(app);
 // Global Variable
 let initalIngredientCount = 3; // Counter for input
 let initalInstructionCount = 3; // Counter for input
+let recipes = []; // Array to hold Recipes
 
 //  Url Listener
 function initURLListener() {
@@ -147,7 +148,9 @@ export function addFormListeners() {
     // console.log($(".ingredients-Form .addBTN")); // Test Console
     initalIngredientCount++;
     $(".ingredients-Form").append(
-      `<input type="text" placeholder="Ingredients #${initalIngredientCount}"/ >`
+      `<input type="text" placeholder="Ingredients #${initalIngredientCount}" id="ingred${
+        initalIngredientCount - 1
+      }" />`
     );
   });
   // Add Instructions under form
@@ -156,8 +159,76 @@ export function addFormListeners() {
     // console.log($(".instructions-Form .addBTN")); // Test Console
     initalInstructionCount++;
     $(".instructions-Form").append(
-      `<input type="text" placeholder="Instructions #${initalInstructionCount}"/ >`
+      `<input type="text" placeholder="Instructions #${initalInstructionCount}" id="" />`
     );
+  });
+
+  // When User clicks on Submit / "createBTN" button
+  $(".createBTN").on("click", function (e) {
+    console.log("Create"); // print to consle
+
+    // local variables
+    let newItemObj = []; // Array
+    let imagePath = $("#imagePath").val(); // Target value in ImagePath ID
+    let recipeName = $("#recipeName").val(); // Target value in RecipeName ID
+    let recipeDesc = $("#recipeDesc").val(); //
+    let recipeTime = $("#recipeTime").val(); //
+    let serveSize = $("#recipeServeSize").val(); //
+
+    //
+    newItemObj.imagePath = imagePath;
+    newItemObj.recipeName = recipeName;
+    newItemObj.recipeDesc = recipeDesc;
+    newItemObj.recipeTime = recipeTime;
+    newItemObj.serveSize = serveSize;
+
+    // console.log("Path: " + imagePath);
+    // console.log("Name: " + recipeName);
+    // console.log("newItemObj: ", newItemObj);
+
+    newItemObj.ingredients = []; // Array for Ingredients
+    newItemObj.instructions = []; // Array for Instructions
+
+    // Ingredients Form
+    $(".ingredients-Form input").each(function (index, data) {
+      var value = $(this).val();
+      let keyName = "ingredients" + index;
+      let descObj = {};
+
+      // If Input has a value
+      if (value != "") {
+        descObj[keyName] = value;
+        // Push to Array
+        newItemObj.ingredients.push(descObj);
+        // console.log("Ingredients: ", newItemObj);
+        console.log("newItemObj: ", newItemObj);
+      }
+
+      // Print all value in input
+      // console.log("Ingredients: " + value);
+      // newItemObj.recipeName = value;
+    });
+
+    // Instruction Form
+    $(".instructions-Form input").each(function (index, data) {
+      var value = $(this).val();
+      let keyName = "instructions" + index;
+      let descObj = {};
+
+      // If Input has a value
+      if (value != "") {
+        descObj[keyName] = value;
+        // Push to Array
+        newItemObj.instructions.push(descObj);
+        // console.log("Instructions: ", newItemObj);
+        console.log("newItemObj: ", newItemObj);
+      }
+
+      // Print all value in input
+      // console.log("Instruct: " + value);
+    });
+    // Add new object to array
+    recipes.push(newItemObj);
   });
 }
 
