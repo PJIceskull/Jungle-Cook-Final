@@ -1,5 +1,5 @@
 // Import functions into index.js file
-import { changeRoute } from "./model.js";
+import { changeRoute, addRecipe } from "./model.js";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {
@@ -45,6 +45,12 @@ function initListeners() {
   $(".hamburger-menu").on("click", function () {
     $(this).toggleClass("open");
   });
+
+  // $("nav a").on("click", function (e) {
+  //   e.preventDefault();
+  //   let btnID = e.currentTarget.id;
+  //   changeRoute(btnID);
+  // });
 }
 
 // Form Listerners
@@ -142,8 +148,7 @@ export function addLoginListeners() {
 
 // For Create Recipe page
 export function addFormListeners() {
-  // Add Ingredients under form
-  // When button under Ingredients is Clicked
+  // Add Ingredients under form when button under Ingredients is Clicked
   $(".ingredients-Form .addBTN").on("click", function (e) {
     // console.log($(".ingredients-Form .addBTN")); // Test Console
     initalIngredientCount++;
@@ -153,8 +158,7 @@ export function addFormListeners() {
       }" />`
     );
   });
-  // Add Instructions under form
-  // When button under Instructions is Clicked
+  // Add Instructions under form when button under Instructions is Clicked
   $(".instructions-Form .addBTN").on("click", function (e) {
     // console.log($(".instructions-Form .addBTN")); // Test Console
     initalInstructionCount++;
@@ -228,7 +232,8 @@ export function addFormListeners() {
       // console.log("Instruct: " + value);
     });
     // Add new object to array
-    recipes.push(newItemObj);
+    // recipes.push(newItemObj);
+    addRecipe(newItemObj);
   });
 }
 

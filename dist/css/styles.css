@@ -853,10 +853,12 @@ main {
   font-size: 25px;
 }
 #View-Recipe h2,
-#View-Recipe p {
+#View-Recipe p,
+#View-Recipe li {
   font-size: 20px;
 }
-#View-Recipe p {
+#View-Recipe p,
+#View-Recipe li {
   font-family: Caveat-Regular;
 }
 #View-Recipe .img-Desc {
